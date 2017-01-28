@@ -1,0 +1,29 @@
+struct comments// total size of 128bytes
+{
+	char user_name[16];
+	int like_c;
+	char comment[108];
+};
+
+struct Message //total size of 256bytes
+{
+	int user_c;
+	int likes_c;
+	int no_of_comments;
+	char user_name[8];
+	char msg_content[176];
+	 comments *cmts_single[10],**cmts_double[4],***cmts_thriple;
+};
+
+struct Group// total size of 128 bytes
+{
+	int user_c;
+	int msg_c;
+	char g_name[12];
+	char desc[48];
+	Message *msg_single[10], **msg_double[4], ***msg_thriple;
+};
+
+1.the byte vector of pow(2,20) is used to represent pow(2,23) blocks.
+2.each group , message , comment are given 128B ,256B, 128B respectively.
+3.Follows the inode structure and a master record of group details is maintained within the file to refer the offsets where the group block starts.
